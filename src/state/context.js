@@ -5,6 +5,7 @@ export const AppContext = createContext();
 export const AppProvider = ({ children }) => {
   const initialState = {
     country: '',
+    AiResponse: '',
   }  
   const [globalState, setGlobalState] = useState(initialState);
 
