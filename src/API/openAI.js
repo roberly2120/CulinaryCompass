@@ -2,7 +2,7 @@ import OpenAI from 'openai';
 import { AppContext } from '../state/context';
 
 
-const key = process.env.REACT_APP_API_KEY;
+const key = process.env.OPENAI_API_KEY;
 const openai = new OpenAI({apiKey: key, dangerouslyAllowBrowser: true})
 
 export const generateRecipe = async (globalState, setGlobalState) => {
