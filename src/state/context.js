@@ -6,6 +6,10 @@ export const AppProvider = ({ children }) => {
   const initialState = {
     country: '',
     AiResponse: '',
+    Description: '',
+    Ingredients: [],
+    Instructions: [],
+    Dish: ''
   }  
   const [globalState, setGlobalState] = useState(initialState);
 
