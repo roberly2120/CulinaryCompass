@@ -12,6 +12,7 @@
   --color-background: #ffffff; /* White background */
   --color-border: #e0e0e0; /* Light gray border */
 }
+@import url('https://fonts.googleapis.com/css2?family=Nunito+Sans&family=Open+Sans&display=swap');
 body {
   background-color: var(--color-background);
 }
@@ -44,4 +45,32 @@ body {
   color: var(--color-secondary);
   cursor: pointer;
   transform: scale(1.05);
+}
+.compass-container {
+  margin-left: 15px;
+  font-family: 'Open Sans';
+}
+.compass-button {
+  margin-right: 8px;
+  background-color: var(--color-primary);
+  padding: 6px;
+  
+
+}
+.compass-button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  background-color: var(--color-accent);
+}
+.scroll-top-button {
+  border: 1px solid black;
+  width: 130px;
+  text-align: center;
+  padding: 2px;
+  border-radius: 10%;
+}
+.scroll-top-button:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  background-color: var(--color-accent);
 }

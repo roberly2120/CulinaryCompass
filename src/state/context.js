@@ -9,7 +9,8 @@ export const AppProvider = ({ children }) => {
     Description: '',
     Ingredients: [],
     Instructions: [],
-    Dish: ''
+    Dish: '',
+    fetchingData: false
   }  
   const [globalState, setGlobalState] = useState(initialState);
 
