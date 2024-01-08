@@ -81,3 +81,23 @@ body {
   font-size: 1.2rem;
   font-weight: 600;
 }
+.home-nav-to-compass {
+  border: 1px solid black;
+  width: 130px;
+  text-align: center;
+  padding: 3px;
+  border-radius: 10%;
+  margin-top: 50px;
+  margin-left: 10px;
+}
+.home-nav-to-compass:hover {
+  cursor: pointer;
+  transform: scale(1.05);
+  background-color: var(--color-accent);
+}
+.home-container {
+  margin-left: 15px;
+  font-family: 'Open Sans';
+  margin-bottom: 200px;
+}
+

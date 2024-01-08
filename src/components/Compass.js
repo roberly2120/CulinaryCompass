@@ -34,6 +34,7 @@ export default function Compass () {
     return (
         <div className="compass-container">
             <h1>Compass</h1>
+            <h3>Use the buttons below to find a random country, then generate a recipe for a main dish that is commonly or traditionally eaten in that country. Enjoy your cooking challenge!</h3>
             <button className='compass-button' onClick={pickRandomCountry}>Get Random Country</button>
             <button
                 className='compass-button' 
