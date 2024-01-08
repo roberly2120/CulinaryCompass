@@ -43,7 +43,7 @@ export default function Compass () {
             Generate Recipe
             </button>
             <p>{globalState.fetchingData ? '...fetching recipe...' : ''}</p>
-            <p>Country: {country}</p>
+            <p className="compass-country">Country: {country}</p>
             <h3>{dish.length ? `Your Global Dish Challenge is ${dish}!` : ''}</h3>
             <p>{description}</p>
             <Ingredients />

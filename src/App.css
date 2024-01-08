@@ -49,6 +49,7 @@ body {
 .compass-container {
   margin-left: 15px;
   font-family: 'Open Sans';
+  margin-bottom: 200px;
 }
 .compass-button {
   margin-right: 8px;
@@ -68,9 +69,15 @@ body {
   text-align: center;
   padding: 2px;
   border-radius: 10%;
+  margin-top: 50px;;
 }
 .scroll-top-button:hover {
   cursor: pointer;
   transform: scale(1.05);
   background-color: var(--color-accent);
+}
+
+.compass-country {
+  font-size: 1.2rem;
+  font-weight: 600;
 }
