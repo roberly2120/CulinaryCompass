@@ -23,6 +23,8 @@ const promptFormatted = `Please give me a recipe for a main course that is tradi
         const completion = await openai.chat.completions.create({
             messages: [{ role: "system", content: `${promptFormatted}` }],
             model: "gpt-3.5-turbo",
+            presence_penalty: 0.6,
+            // consider a presence penalty to encourage more varied responses. may only have an effect in the same session though
         });
 
         const res = JSON.parse(completion.choices[0].message.content)
@@ -32,7 +34,6 @@ const promptFormatted = `Please give me a recipe for a main course that is tradi
         const instructions = recipe.Instructions
         const dish = res.Dish
         
-        // console.log('res', res)
         setGlobalState({
           ...globalState,
           AiResponse: completion.choices[0].message.content,
