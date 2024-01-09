@@ -61,7 +61,7 @@ body {
   background-color: var(--color-primary);
   color: var(--color-accent);
   padding: 6px;
-  font-weight: 100;
+  font-weight: 300;
 }
 .compass-button:hover {
   cursor: pointer;
@@ -163,6 +163,38 @@ body {
   border-bottom: 1px solid #ddd;
   text-decoration: none;
 }
+@keyframes wave {
+  0%, 100% { transform: scaleY(1); }
+  25% { transform: scaleY(1.3); }
+}
+.fetching-recipe span {
+  display: inline-block;
+  animation-name: wave;
+  animation-duration: 2.1s;
+  animation-iteration-count: infinite;
+  animation-timing-function: ease-in-out;
+  min-width: 0.5ch;
+}
+.fetching-recipe span:nth-child(1) { animation-delay: 0s; }
+.fetching-recipe span:nth-child(2) { animation-delay: 0.1s; }
+.fetching-recipe span:nth-child(3) { animation-delay: 0.2s; }
+.fetching-recipe span:nth-child(4) { animation-delay: 0.3s; }
+.fetching-recipe span:nth-child(5) { animation-delay: 0.4s; }
+.fetching-recipe span:nth-child(6) { animation-delay: 0.5s; }
+.fetching-recipe span:nth-child(7) { animation-delay: 0.6s; }
+.fetching-recipe span:nth-child(8) { animation-delay: 0.7s; }
+.fetching-recipe span:nth-child(9) { animation-delay: 0.8s; }
+.fetching-recipe span:nth-child(10) { animation-delay: 0.9s; }
+.fetching-recipe span:nth-child(11) { animation-delay: 1.0s; }
+.fetching-recipe span:nth-child(12) { animation-delay: 1.1s; }
+.fetching-recipe span:nth-child(13) { animation-delay: 1.2s; }
+.fetching-recipe span:nth-child(14) { animation-delay: 1.3s; }
+.fetching-recipe span:nth-child(15) { animation-delay: 1.4s; }
+.fetching-recipe span:nth-child(16) { animation-delay: 1.5s; }
+.fetching-recipe span:nth-child(17) { animation-delay: 1.6s; }
+.fetching-recipe span:nth-child(18) { animation-delay: 1.7s; }
+.fetching-recipe span:nth-child(19) { animation-delay: 1.8s; }
+.fetching-recipe span:nth-child(20) { animation-delay: 1.9s; }
 /* media queries */
 @media screen and (max-width: 700px) {
   .button:hover {
