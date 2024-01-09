@@ -65,7 +65,7 @@ body {
 .compass-button:hover {
   cursor: pointer;
   transform: scale(1.05);
-  background-color: var(--color-secondary);
+  /* background-color: var(--color-secondary); */
 }
 .scroll-top-button {
   border: 1px solid black;
@@ -79,7 +79,7 @@ body {
 .scroll-top-button:hover {
   cursor: pointer;
   transform: scale(1.05);
-  background-color: var(--color-secondary);
+  /* background-color: var(--color-secondary); */
 }
 
 .compass-country {
@@ -91,7 +91,6 @@ body {
   width: 130px;
   text-align: center;
   padding: 3px;
-  border-radius: 10%;
   margin-top: 50px;
   margin-left: 10px;
 }
