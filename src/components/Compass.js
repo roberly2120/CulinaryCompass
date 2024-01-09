@@ -44,7 +44,7 @@ export default function Compass() {
             >
                 Generate Recipe
             </button>
-            {/* <p>{globalState.fetchingData ? '...fetching recipe...' : ''}</p> */}
+            {/* changed 'fetching recipe' to spans so i could individually animate letters */}
             <p className="fetching-recipe">
                 {globalState.fetchingData ? '...fetching recipe...'.split('').map((char, index) => (
                     <span key={index}>{char}</span>
