@@ -1,7 +1,7 @@
 import React from "react";
 import { AppContext } from "../state/context";
 import countries from "../data/countries.json";
-import test_data from "../data/placeHolder_data.json"
+// import test_data from "../data/placeHolder_data.json"
 import Ingredients from "./recipe/Ingredients";
 import Instructions from "./recipe/Instructions";
 import { generateRecipe } from "../API/openAI";
@@ -35,9 +35,9 @@ export default function Compass () {
         <div className="compass-container">
             <h1>Compass</h1>
             <h3>Use the buttons below to find a random country, then generate a recipe for a main dish that is commonly or traditionally eaten in that country. Enjoy your cooking challenge!</h3>
-            <button className='compass-button' onClick={pickRandomCountry}>Get Random Country</button>
+            <button className='compass-button button' onClick={pickRandomCountry}>Get Random Country</button>
             <button
-                className='compass-button' 
+                className='compass-button button' 
                 disabled={globalState.fetchingData} 
                 onClick={() => handleGenerateRecipe(globalState, setGlobalState)}
             >
@@ -50,7 +50,7 @@ export default function Compass () {
             <Ingredients />
             <Instructions />
             
-            <div onClick={() => scrollToTop()} className="scroll-top-button">Scroll To Top</div>
+            <div onClick={() => scrollToTop()} className="scroll-top-button button">Scroll To Top</div>
             
         </div>
     )
