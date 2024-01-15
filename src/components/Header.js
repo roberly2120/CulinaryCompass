@@ -25,7 +25,7 @@ export default function Header() {
     }, [hamburgerOpen])
     return (
         <div className="header-container">
-            <div className="header-logo" onClick={() => navigate('/')}>Culinary Compass</div>
+            <div className="header-logo" onClick={() => navigate('/home')}>Culinary Compass</div>
             <div className='hamburger-menu' onClick={toggleHamburger}>
                 <span></span>
                 <span></span>
@@ -33,10 +33,11 @@ export default function Header() {
             </div>
             
                 <div className={`menu ${hamburgerOpen ? 'open' : ''}`} ref={menuRef}>
-                    <Link to="/" className="menu-item">Home</Link>
+                    <Link to="/home" className="menu-item">Home</Link>
                     <Link to="/compass" className="menu-item">Compass</Link>
                     <Link to="/my-recipes" className="menu-item">My Recipes</Link>
                     <Link to="/about" className="menu-item">About</Link>
+                    <Link to="/logout" className="menu-item">Log Out</Link>
                 </div>
         </div>
     );

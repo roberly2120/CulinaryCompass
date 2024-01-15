@@ -1,8 +1,17 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { useNavigate } from "react-router-dom";
+import { useAuth0 } from "@auth0/auth0-react";
 
 export default function Home () {
     const navigate = useNavigate()
+    const { isAuthenticated, loginWithRedirect } = useAuth0()
+    // isAuthenticated = true;
+
+    useEffect(() => {
+        if(!isAuthenticated) {
+            loginWithRedirect();
+        }
+    }, [isAuthenticated, loginWithRedirect])
 
     return (
         <div className="home-container">
@@ -13,3 +22,4 @@ export default function Home () {
         </div>
     )
 }
+// thisIsATestPassword1234!

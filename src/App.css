@@ -16,6 +16,21 @@
 body {
   background-color: var(--color-background);
 }
+.loginButton {
+  background-color: var(--color-primary);
+  color: var(--color-accent);
+  padding: 6px;
+  font-weight: 300;
+  border: 1px solid black;
+  width: fit-content
+}
+.loginButton:hover {
+  cursor: pointer;
+  transform: scale(1.04);
+}
+.landing-page-container {
+  margin-left: 15px;
+}
 .header-container {
   background-color: var(--color-primary);
   color: var(--color-text);
