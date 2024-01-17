@@ -37,10 +37,10 @@ const promptFormatted = `Please give me a recipe for a main course that is tradi
         setGlobalState({
           ...globalState,
           AiResponse: completion.choices[0].message.content,
-          Description: description,
-          Ingredients: ingredients,
-          Instructions: instructions,
-          Dish: dish,
+          description: description,
+          ingredients: ingredients,
+          instructions: instructions,
+          dish: dish,
           fetchingData: false
           });
     } catch (error) {

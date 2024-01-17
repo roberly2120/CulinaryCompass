@@ -5,12 +5,15 @@ import countries from "../data/countries.json";
 import Ingredients from "./recipe/Ingredients";
 import Instructions from "./recipe/Instructions";
 import { generateRecipe } from "../API/openAI";
+import { createNewRecipeSave } from "../FireStore/eventHandlers";
+import { useAuth0 } from "@auth0/auth0-react";
+
 
 export default function Compass() {
     const { globalState, setGlobalState } = React.useContext(AppContext);
-    const country = globalState.country
-    const description = globalState.Description
-    const dish = globalState.Dish
+    const{ country, dish, description, ingredients, instructions, fetchingData } = globalState
+    const { user } = useAuth0();
+    const userID = user.sub;
 
     // const description = test_data.Description
     // const dish = test_data.Dish
@@ -31,6 +34,10 @@ export default function Compass() {
             behavior: 'smooth'
         });
     }
+    const handleSaveRecipe = () => {
+        createNewRecipeSave(country, dish, description, ingredients, instructions, userID)
+        console.log('recipe saved')
+    }
     return (
         <div className="compass-container">
             {/* <h1>Compass</h1> */}
@@ -39,10 +46,17 @@ export default function Compass() {
             <button className='compass-button button' onClick={pickRandomCountry}>Get Random Country</button>
             <button
                 className='compass-button button'
-                disabled={globalState.fetchingData}
+                disabled={fetchingData}
                 onClick={() => handleGenerateRecipe(globalState, setGlobalState)}
             >
                 Generate Recipe
+            </button>
+            <button 
+                className='compass-button button'
+                disabled={fetchingData && !dish.length}
+                onClick={() => handleSaveRecipe()} 
+            >
+                Save to My Recipes
             </button>
             {/* changed 'fetching recipe' to spans so i could individually animate letters */}
             <p className="fetching-recipe">
