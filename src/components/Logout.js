@@ -4,7 +4,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 const Logout = () => {
   const { logout } = useAuth0();
   useEffect(() => {
-    logout({ returnTo: window.location.origin })
+    logout({ returnTo: process.env.REACT_APP_BASE_URL })
   }, [])
   return (
     <div>
