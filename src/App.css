@@ -221,16 +221,20 @@ body {
   font-family: 'Open Sans';
   margin-bottom: 200px;
 }
-.recipe-blurb{
+.recipe-blurb {
   display: flex;
-  align-content: center;
-  align-items: center;
+  flex-direction: column;
+  align-items: left;
+  padding-bottom: 8px;
+  border-bottom: 1px solid black;
 }
-.recipe-blurb h2 {
-  margin-right: 10px;
-}
+
 .myrecipes-dish {
-  color: var(--color-secondary);
+  color: var(--color-primary);
+  text-decoration: underline;
+}
+.myrecipes-dish:hover {
+  cursor: pointer;
 }
 .myrecipes-country {
   color: var(--color-text-secondary);
@@ -262,24 +266,30 @@ body {
   padding: 6px;
   font-weight: 500;
   border: none;
+  font-size: .6rem;
   border-radius: 4px;
   margin-top: 8px;
-  margin-left: 10px;
-  height: 30px;
+  /* margin-left: 10px; */
+  height: 14px;
+  width: fit-content;
 }
 .myrecipes-delete-recipe-button:hover {
   cursor: pointer;
   transform: scale(1.05);
+}
+.recipe-blurb-name-country {
+
 }
 .saved-recipe-container {
   margin-left: 15px;
   font-family: 'Open Sans';
   margin-bottom: 200px;
 }
+
 /* media queries */
-@media screen and (max-width: 700px) {
-  .button:hover {
-    transform: scale(1.05) ease-in-out;
+@media screen and (max-width: 500px) {
+  .recipe-blurb {
+    font-size: .7rem;
   }
 }
 

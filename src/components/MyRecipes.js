@@ -16,9 +16,11 @@ export default function MyRecipes () {
         };
         fetchRecipes();
     }, [user.sub])
+    
     // useEffect(() => {
     //     console.log(recipes)
     // }, [recipes])
+
     const handleDeleteRecipe = async (id) => {
         await deleteDocument('recipes', id);
         setRecipes(recipes.filter(recipe => recipe.id !== id));
@@ -32,6 +34,7 @@ export default function MyRecipes () {
             </div>
         )
     }
+
     return (
         <div className="myrecipes-container">
             <h1>My Recipes</h1>
@@ -39,15 +42,8 @@ export default function MyRecipes () {
             {recipes.map((recipe, index) => {
                 return (
                     <div className='recipe-blurb' key={index}>
-                        <h2 className="myrecipes-dish">{recipe.dish}</h2>
-                        {' '}
-                        <h2> from </h2>
-                        {' '}
-                        <h2 className="myrecipes-country">{recipe.country}</h2>
-                        <div className="myrecipes-goto-recipe-button" onClick={()=> navigate(`/saved-recipe/${recipe.id}`)}>
-                            <p>VIEW RECIPE</p>
-                        </div>
-                        <div className="myrecipes-delete-recipe-button" onClick={() => {handleDeleteRecipe(recipe.id)}}>DELETE</div>
+                        <h2 className="myrecipes-dish" onClick={() => navigate(`/saved-recipe/${recipe.id}`)}>{recipe.dish}</h2>
+                        <div className="myrecipes-delete-recipe-button" onClick={() => { handleDeleteRecipe(recipe.id) }}>REMOVE FROM SAVED</div>
                     </div>
                 )
             })}
