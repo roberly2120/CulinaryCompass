@@ -39,8 +39,8 @@ export default function SavedRecipe () {
             <h3>Instructions</h3>
             {recipe.instructions.map((step, index) => {
                 return (
-                    <ul>
-                        <li key={index}>{step}</li>
+                    <ul key={index}>
+                        <li>{step}</li>
                     </ul>
                 )
             })}

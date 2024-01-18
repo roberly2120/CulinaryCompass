@@ -5,6 +5,7 @@ import { useAuth0 } from "@auth0/auth0-react";
 
 export default function MyRecipes () {
     const [ recipes, setRecipes ] = useState([]);
+    const [pageNotice, setPageNotice] = useState('') 
     const { user } = useAuth0();
     const navigate = useNavigate();
 
@@ -23,6 +24,7 @@ export default function MyRecipes () {
     return (
         <div className="myrecipes-container">
             <h1>My Recipes</h1>
+            <p className="page-notice">{pageNotice}</p>
             {recipes.map((recipe, index) => {
                 return (
                     <div className='recipe-blurb' key={index}>
@@ -32,7 +34,7 @@ export default function MyRecipes () {
                         {' '}
                         <h2 className="myrecipes-country">{recipe.country}</h2>
                         <div className="myrecipes-goto-recipe-button" onClick={()=> navigate(`/saved-recipe/${recipe.id}`)}>
-                            <p>View Recipe</p>
+                            <p>VIEW RECIPE</p>
                         </div>
                     </div>
                 )
