@@ -10,7 +10,14 @@ export const AppProvider = ({ children }) => {
     ingredients: [],
     instructions: [],
     dish: '',
+    customLocation: '',
     fetchingData: false,
+    customDish: '',
+    customDescription: '',
+    customIngredients: [],
+    customInstructions: [],
+    customFetchingData: false,
+    customAiResponse: '',
   }  
   const [globalState, setGlobalState] = useState(initialState);
 

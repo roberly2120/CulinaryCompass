@@ -6,8 +6,8 @@ import MyRecipes from './components/MyRecipes';
 import About from './components/About';
 import LandingPage from './components/LandingPage';
 import Logout from './components/Logout';
-import TestFirebase from './components/test_components/TestFirebase';
 import SavedRecipe from './components/SavedRecipe';
+import CustomCompass from './components/CustomCompass';
 import { AppProvider } from './state/context';
 import { Routes, Route } from 'react-router-dom';
 import { withAuthenticationRequired } from '@auth0/auth0-react';
@@ -31,8 +31,9 @@ function App() {
           <Route path='/my-recipes' element={<ProtectedRoute component={MyRecipes} />} />
           <Route path='/about' element={<ProtectedRoute component={About} />} />
           <Route path='/logout' element={<ProtectedRoute component={Logout} />} />
-          <Route path='firebase-test' element={<ProtectedRoute component={TestFirebase}/>} />
+          {/* <Route path='firebase-test' element={<ProtectedRoute component={TestFirebase}/>} /> */}
           <Route path='/saved-recipe/:id' element={<ProtectedRoute component={SavedRecipe}/>} />
+          {/* <Route path='/custom-compass' element={<ProtectedRoute component={CustomCompass}/>} /> */}
         </Routes>
       </div>
     </AppProvider>

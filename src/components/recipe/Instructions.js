@@ -1,21 +1,28 @@
 import React from "react";
 import { AppContext } from "../../state/context";
-// import test_data from "../../data/placeHolder_data.json"
+import { Box, Heading, OrderedList, ListItem } from "@chakra-ui/react";
 
-
-export default function Instructions () {
+export default function Instructions() {
     const { globalState } = React.useContext(AppContext);
-    // const instructions = test_data.Recipe.Instructions
-    const instructions = globalState.instructions
+    const instructions = globalState.instructions;
 
+    if (!instructions.length) {
+        return null;
+    }
     return (
-        <div>
-            <h3>{instructions.length ? 'Instructions' : ''}</h3>
-            <ul>
-                {instructions.length ? instructions.map((step, idx) => {
-                return <li key={idx}>{step}</li>
-            }) : ''}
-            </ul>
-        </div>
-    )
+        <Box p={4} shadow="sm" borderWidth="1px" borderRadius="lg" maxWidth="container.md" w="100%" mx="auto">
+            {instructions.length > 0 && (
+                <>
+                    <Heading as="h3" size="md" mb={4}>
+                        Instructions
+                    </Heading>
+                    <OrderedList spacing={2}>
+                        {instructions.map((step, idx) => (
+                            <ListItem key={idx}>{step}</ListItem>
+                        ))}
+                    </OrderedList>
+                </>
+            )}
+        </Box>
+    );
 }

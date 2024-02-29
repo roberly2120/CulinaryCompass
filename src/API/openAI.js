@@ -1,5 +1,5 @@
 import OpenAI from 'openai';
-import { AppContext } from '../state/context';
+
 
 
 
@@ -24,7 +24,7 @@ const promptFormatted = `Please give me a recipe for a main course that is tradi
             messages: [{ role: "system", content: `${promptFormatted}` }],
             model: "gpt-3.5-turbo",
             presence_penalty: 0.6,
-            // consider a presence penalty to encourage more varied responses. may only have an effect in the same session though
+            // presence penalty to encourage more varied responses. may only have an effect in the same session though
         });
 
         const res = JSON.parse(completion.choices[0].message.content)
@@ -46,4 +46,45 @@ const promptFormatted = `Please give me a recipe for a main course that is tradi
     } catch (error) {
         console.error(error)
     }
+};
+export const generateCustomRecipe = async (globalState, setGlobalState) => {
+    
+  try {
+    console.log('globalState.customLocation', globalState.customLocation)
+const promptFormatted = `Please give me a recipe for a main course that is commonly eaten in  ${globalState.customLocation}. Format the response as a JSON object with the following structure:
+
+{
+"Dish": "Name of the dish",
+"Description": "A brief description of the dish",
+"Recipe": {
+  "Ingredients": ["List", "of", "ingredients"],
+  "Instructions": ["Step-by-step", "cooking", "process"]
+}
+}`;
+      const completion = await openai.chat.completions.create({
+          messages: [{ role: "system", content: `${promptFormatted}` }],
+          model: "gpt-3.5-turbo",
+          presence_penalty: 0.6,
+          // presence penalty to encourage more varied responses. may only have an effect in the same session though
+      });
+
+      const res = JSON.parse(completion.choices[0].message.content)
+      const recipe = res.Recipe
+      const ingredients = recipe.Ingredients
+      const description = res.Description
+      const instructions = recipe.Instructions
+      const dish = res.Dish
+      
+      setGlobalState({
+        ...globalState,
+        customAiResponse: completion.choices[0].message.content,
+        customDescription: description,
+        customIngredients: ingredients,
+        customInstructions: instructions,
+        customDish: dish,
+        customFetchingData: false
+        });
+  } catch (error) {
+      console.error(error)
+  }
 };

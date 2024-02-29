@@ -35,6 +35,7 @@ export default function Header() {
             <div className={`menu ${hamburgerOpen ? 'open' : ''}`} ref={menuRef}>
                 <Link to="/home" className="menu-item" onClick={() => setHamburgerOpen(false)}>Home</Link>
                 <Link to="/compass" className="menu-item" onClick={() => setHamburgerOpen(false)}>Compass</Link>
+                {/* <Link to="/custom-compass" className="menu-item" onClick={() => setHamburgerOpen(false)}>Custom Compass</Link> */}
                 <Link to="/my-recipes" className="menu-item" onClick={() => setHamburgerOpen(false)}>My Recipes</Link>
                 <Link to="/about" className="menu-item" onClick={() => setHamburgerOpen(false)}>About</Link>
                 <Link to="/logout" className="menu-item" onClick={() => setHamburgerOpen(false)}>Log Out</Link>

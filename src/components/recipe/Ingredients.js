@@ -1,21 +1,27 @@
 import React from "react";
 import { AppContext } from "../../state/context";
-// import test_data from "../../data/placeHolder_data.json"
+import { Box, Heading, UnorderedList, ListItem } from "@chakra-ui/react";
 
-
-export default function Ingredients () {
+export default function Ingredients() {
     const { globalState } = React.useContext(AppContext);
-    // const ingredients = test_data.Recipe.Ingredients
-    const ingredients = globalState.ingredients
-
+    const ingredients = globalState.ingredients;
+    if(!ingredients.length){
+        return null;
+    }
     return (
-        <div>
-            <h3>{ingredients.length ? 'Ingredients' : ''}</h3>
-            <ul>
-                {ingredients.length ? ingredients.map((ingredient, idx) => {
-                return <li key={idx}>{ingredient}</li>
-            }) : ''}
-            </ul>
-        </div>
-    )
+        <Box p={4} shadow="sm" borderWidth="1px" borderRadius="lg" maxWidth="container.md" w="100%" mx="auto">
+            {ingredients.length > 0 && (
+                <>
+                    <Heading as="h3" size="md" mb={4}>
+                        Ingredients
+                    </Heading>
+                    <UnorderedList spacing={2}>
+                        {ingredients.map((ingredient, idx) => (
+                            <ListItem key={idx}>{ingredient}</ListItem>
+                        ))}
+                    </UnorderedList>
+                </>
+            )}
+        </Box>
+    );
 }
