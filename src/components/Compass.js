@@ -8,7 +8,7 @@ import { createNewRecipeSave } from "../FireStore/eventHandlers";
 import { useAuth0 } from "@auth0/auth0-react";
 import { collection, query, where, getDocs } from "firebase/firestore";
 import { db } from "../FireStore/firestore";
-import { Center, Box, HStack, VStack, Button, Text, Heading, useToast, IconButton, Tooltip } from "@chakra-ui/react";
+import { Center, Box, HStack, VStack, Button, Text, Heading, useToast, IconButton, Tooltip, Stack, useBreakpointValue } from "@chakra-ui/react";
 import { ChevronUpIcon, StarIcon } from "@chakra-ui/icons";
 
 export default function Compass() {
@@ -81,6 +81,7 @@ export default function Compass() {
             displayToast('Your recipe has been saved!');
         }
     };
+    const stackDirection = useBreakpointValue({ base: "column", md: "row" });
 
     return (
         <VStack spacing={4} className="compass-container" mt={5}>
@@ -90,8 +91,7 @@ export default function Compass() {
                 </Heading>
             </Box>
             <Text fontSize="lg" className="compass-country">Country: {country}</Text>
-            <HStack spacing={4} mt={5} mb={5}>
-                
+            <Stack direction={stackDirection} spacing={4} mt={5} mb={5}>
                 <Button colorScheme="teal" variant="solid" onClick={pickRandomCountry} style={{ color: 'white' }}>
                     Get Random Country
                 </Button>
@@ -109,11 +109,11 @@ export default function Compass() {
                         onMouseLeave={() => setHoverState(false)}
                     />
                 </Tooltip>
-            </HStack>
+            </Stack>
             {fetchingData && <Text className="fetching-recipe">...fetching recipe...</Text>}
 
-            
-            <Box w="container.md">
+
+            <Box w="100%" maxW="container.md" mx="auto">
                 <VStack spacing={3} align="center">
                     {dish && (
                         <>
@@ -127,9 +127,14 @@ export default function Compass() {
                             </Box>
                         </>
                     )}
-                    {description && <Text>{description}</Text>}
+                    {description && (
+                        <Box p={4} border="1px" borderColor="gray.200" borderRadius="md" width="90%" mx="auto">
+                            <Text fontSize="lg">{description}</Text>
+                        </Box>
+                    )}
                 </VStack>
             </Box>
+
 
             <Ingredients />
             <Instructions />
