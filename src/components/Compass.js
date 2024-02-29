@@ -113,7 +113,7 @@ export default function Compass() {
             {fetchingData && <Text className="fetching-recipe">...fetching recipe...</Text>}
 
             
-            <Box>
+            <Box w="container.md">
                 <VStack spacing={3} align="center">
                     {dish && (
                         <>
