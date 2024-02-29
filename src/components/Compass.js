@@ -14,6 +14,7 @@ import { ChevronUpIcon, StarIcon } from "@chakra-ui/icons";
 export default function Compass() {
     const [pageNotice, setPageNotice] = useState('');
     const [hoverState, setHoverState] = useState(false);
+    const [hasGenerated, setHasGenerated] = useState(false);
     const { globalState, setGlobalState } = React.useContext(AppContext);
     const { country, dish, description, ingredients, instructions, fetchingData } = globalState;
     const { user } = useAuth0();
@@ -52,7 +53,10 @@ export default function Compass() {
             displayToast('You must select a country before you can generate a recipe!', 'warning');
             return;
         } else {
-            displayFunnyToast();
+            if(!hasGenerated) {
+                displayFunnyToast();
+                setHasGenerated(true);
+            }
             setGlobalState({ ...globalState, fetchingData: true });
             await generateRecipe(globalState, setGlobalState);
         }
